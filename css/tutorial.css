@@ -1,0 +1,282 @@
+*{
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr;
+    grid-template-rows: 100px 1fr 150px;
+    grid-template-areas: "header header header"
+                         "aside main main"
+                         "footer footer footer";
+                         min-height: 100vh;
+    margin: 0;
+}
+
+header{
+    grid-area: header;
+    height: 100%;
+    background-color: gray;
+}
+
+header h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    font-size: 40px;
+    color: white;
+}
+
+aside{
+    grid-area: aside;
+    background-color: lightgray;
+    padding: 20px;
+    transition: 0.6s;
+}
+
+aside:hover{
+
+        background-color: rgb(226, 226, 226);
+
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 10px;
+    font-size: 20px;
+}
+
+aside li{
+    margin: 10px 0px 10px 0px;
+}
+
+aside a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: lightgray;
+    margin: 10px 0px 10px 0px;
+}
+
+aside a:hover {
+    color: white;
+    background-color: #ff69b4;
+    transform: scale(1.1);
+}
+
+main{
+    grid-area: main;
+    background-color: #e6e6fa;
+    min-height: 2000px;
+    padding: 20px;
+}
+
+hr{
+    margin-top: 4px;
+    border: 2px solid purple;
+    width: 60%;
+}
+
+main p{
+    padding: 10px;
+    font-size: 20px;
+    width: 90%;
+}
+
+main p a{
+    text-decoration: none;
+}
+
+main h2{
+
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+main h2:hover{
+
+    color: purple;
+    transform: translateX(20px);
+
+}
+
+#partecentral h3{
+
+    margin-left: 40px;
+
+}
+
+#partecentral p{
+
+    margin-left: 50px;
+
+}
+
+
+#partecentral h3{
+
+    color: black;
+
+
+}
+
+#partecentral h3:hover{
+
+    color: purple;
+    transition: color 0.3s ease-in-out;
+
+}
+
+main li {
+    margin-left: 60px;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    list-style-type: none;
+}
+
+main li:hover {
+    color: purple;
+    transform: translateX(10px);
+}
+
+main img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+#reducido{
+    max-width: 500px;
+}
+
+footer{
+    grid-area: footer;
+    background-color: lightgray;
+    text-align: center;
+    transition: 0.6s;
+}
+
+footer:hover{
+
+    background-color: rgb(226, 226, 226);
+
+}
+
+footer i{
+    margin-top: 10px;
+}
+
+footer p{
+    margin-top: 10px;
+}
+
+i {
+    font-size: 40px;
+    color: white;
+    padding: 10px;
+    transition: 0.6s;
+
+}
+
+i:hover{
+    
+    transform: scale(1.3);
+
+}
+
+.instagram-icon:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #e6683c;
+}
+
+.facebook-icon:hover {
+    color: #4267B2;
+}
+
+.twitter-icon:hover {
+    color: black;
+}
+
+.youtube-icon:hover {
+    color: #FF0000;
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "header"
+            "main"
+            "footer";
+    }
+
+    #hamburger-menu {
+        display: block;
+        position: fixed; /* Cambia de absolute a fixed */
+        top: 20px;
+        left: 20px;
+        background: #888888; /* Gris */
+        color: white;
+        border: none;
+        font-size: 2rem;
+        padding: 8px 16px;
+        border-radius: 5px;
+        z-index: 1100;
+        cursor: pointer;
+    }
+
+    aside {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 220px;
+        height: 100vh;
+        background: lightgray;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+        padding: 40px 20px 20px 20px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1050;
+    }
+
+    aside.active {
+        transform: translateX(0);
+    }
+
+    /* Oculta el menú hamburguesa en escritorio */
+    @media (min-width: 769px) {
+        #hamburger-menu {
+            display: none;
+        }
+    }
+}
